@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="MarketPulse AI — see what the market sees. Market intelligence, product analysis and strategic opportunity discovery."
+    />
+    <meta name="theme-color" content="#F8F7F3" />
+    <title>MarketPulse AI — See what the market sees</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Light mode is the default for every new visitor; only an explicit
+      // choice is remembered.
+      try {
+        var stored = localStorage.getItem("marketpulse-theme");
+        if (stored === "dark") document.documentElement.classList.add("dark");
+        document.documentElement.classList.remove("light");
+      } catch (error) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
