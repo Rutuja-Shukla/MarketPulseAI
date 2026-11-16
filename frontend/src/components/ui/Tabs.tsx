@@ -27,9 +27,9 @@ export function Tabs({
           aria-selected={value === item.value}
           onClick={() => onChange(item.value)}
           className={cn(
-            "relative -mb-px border-b-2 px-3 py-2 text-[12.5px] transition-colors",
+            "relative -mb-px border-b-2 px-3 py-2 text-[12.5px] font-semibold transition-colors",
             value === item.value
-              ? "border-navy text-ink"
+              ? "border-accent text-ink"
               : "border-transparent text-muted hover:text-ink",
           )}
         >

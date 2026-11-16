@@ -10,7 +10,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       <div className="page-shell py-8 md:py-10">{children}</div>
       <footer className="no-print border-t border-line">
         <div className="page-shell flex flex-wrap items-center justify-between gap-3 py-5">
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-muted">
             MarketPulse AI — evidence-led market intelligence
           </span>
           <span className="text-[11px] text-muted">

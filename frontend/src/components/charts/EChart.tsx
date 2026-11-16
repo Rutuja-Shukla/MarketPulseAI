@@ -5,15 +5,15 @@ import { useTheme } from "@/hooks/useTheme";
 export function useChartPalette() {
   const { theme } = useTheme();
   const palette = {
-    text: theme === "dark" ? "#f0eee7" : "#182a3a",
-    muted: theme === "dark" ? "#97a3ad" : "#68727c",
-    border: theme === "dark" ? "#29333c" : "#e5e3dc",
-    surface: theme === "dark" ? "#161e25" : "#ffffff",
-    navy: theme === "dark" ? "#a8c4de" : "#173b64",
-    accent: theme === "dark" ? "#7fa7c9" : "#477ca8",
-    positive: theme === "dark" ? "#8aac97" : "#6f927d",
-    warning: theme === "dark" ? "#d3ac72" : "#c49a5b",
-    negative: theme === "dark" ? "#d79289" : "#c87970",
+    text: theme === "dark" ? "#ecf7f1" : "#0b1f18",
+    muted: theme === "dark" ? "#93ab9f" : "#65786f",
+    border: theme === "dark" ? "#1e352b" : "#e3ebe6",
+    surface: theme === "dark" ? "#0f1e18" : "#ffffff",
+    navy: theme === "dark" ? "#d8f26b" : "#0b1f18",
+    accent: theme === "dark" ? "#4ade9f" : "#0f9d6e",
+    positive: theme === "dark" ? "#4ade9f" : "#0a8a60",
+    warning: theme === "dark" ? "#e0bb72" : "#a9761a",
+    negative: theme === "dark" ? "#f0918a" : "#c0392b",
   };
   return palette;
 }

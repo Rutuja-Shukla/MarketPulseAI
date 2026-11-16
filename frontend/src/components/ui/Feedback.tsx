@@ -18,10 +18,10 @@ export function EmptyState({
 }) {
   return (
     <div className={cn("flex flex-col items-center justify-center px-6 py-16 text-center", className)}>
-      <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-full border border-line bg-subtle text-muted">
+      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-md border border-line bg-subtle text-accent">
         {icon ?? <Compass className="h-4 w-4" aria-hidden />}
       </div>
-      <h3 className="text-[17px]">{title}</h3>
+      <h3 className="text-[17px] font-bold">{title}</h3>
       {description ? <p className="mt-2 max-w-sm text-[13px] leading-relaxed text-muted">{description}</p> : null}
       {action ? <div className="mt-6">{action}</div> : null}
     </div>
@@ -51,7 +51,7 @@ export function ErrorState({
   onRetry?: () => void;
 }) {
   return (
-    <div className="flex flex-col items-start gap-4 border border-negative/30 bg-negative/[0.04] p-6">
+    <div className="flex flex-col items-start gap-4 rounded-md border border-negative/25 bg-negative/[0.05] p-6">
       <div className="flex items-center gap-2 text-negative">
         <AlertTriangle className="h-4 w-4" aria-hidden />
         <span className="font-mono text-[10.5px] uppercase tracking-[0.12em]">Request failed</span>
@@ -68,9 +68,9 @@ export function ErrorState({
 
 export function ProgressBar({ value, className }: { value: number; className?: string }) {
   return (
-    <div className={cn("h-1 w-full overflow-hidden bg-subtle", className)}>
+    <div className={cn("h-1.5 w-full overflow-hidden rounded-full bg-subtle", className)}>
       <div
-        className="h-full bg-navy transition-[width] duration-700 ease-editorial"
+        className="h-full rounded-full bg-gradient-to-r from-accent to-positive transition-[width] duration-700 ease-editorial"
         style={{ width: `${Math.min(100, Math.max(0, value))}%` }}
       />
     </div>

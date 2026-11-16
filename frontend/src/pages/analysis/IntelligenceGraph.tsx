@@ -139,7 +139,7 @@ export default function IntelligenceGraph() {
         label: edge.relation.replace(/_/g, " "),
         animated: edge.relation === "opens" || edge.relation === "recommends",
         style: { stroke: "var(--mp-border)", strokeWidth: 1.2 },
-        labelStyle: { fill: "var(--mp-muted)", fontSize: 8, fontFamily: "IBM Plex Mono, monospace" },
+        labelStyle: { fill: "var(--mp-muted)", fontSize: 9, fontFamily: "Manrope, sans-serif", fontWeight: 600 },
         labelBgStyle: { fill: "var(--mp-surface)" },
         labelBgPadding: [3, 1] as [number, number],
       }));

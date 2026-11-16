@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 export function Panel({ className, children, ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn("surface rounded-sm", className)} {...props}>
+    <div className={cn("surface", className)} {...props}>
       {children}
     </div>
   );
@@ -37,8 +37,8 @@ export function SectionHeading({
 export function MetaRow({ label, value }: { label: string; value: ReactNode }) {
   return (
     <div className="flex items-baseline justify-between gap-4 border-b border-line py-2.5 last:border-b-0">
-      <span className="text-[12px] uppercase tracking-[0.09em] text-muted">{label}</span>
-      <span className="text-right text-[13px] text-ink">{value}</span>
+      <span className="text-[11.5px] font-semibold uppercase tracking-[0.1em] text-muted">{label}</span>
+      <span className="text-right text-[13px] font-medium text-ink">{value}</span>
     </div>
   );
 }
@@ -63,7 +63,9 @@ export function Stat({
   return (
     <div>
       <div className="eyebrow">{label}</div>
-      <div className={cn("mono mt-2 text-[1.9rem] leading-none", toneClass)}>{value}</div>
+      <div className={cn("mono mt-3 text-[2rem] font-bold leading-none tracking-[-0.045em]", toneClass)}>
+        {value}
+      </div>
       {hint ? <div className="mt-2 text-[11.5px] leading-snug text-muted">{hint}</div> : null}
     </div>
   );

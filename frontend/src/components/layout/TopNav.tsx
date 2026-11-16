@@ -45,7 +45,7 @@ export function TopNav() {
   const unread = notifications.filter((item) => !item.read).length;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-canvas/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-md">
       <div className="page-shell flex h-16 items-center justify-between gap-6">
         <div className="flex items-center gap-8">
           <Logo to="/dashboard" />
@@ -56,8 +56,8 @@ export function TopNav() {
                 to={link.to}
                 className={({ isActive }) =>
                   cn(
-                    "link-underline text-[13px] transition-colors",
-                    isActive ? "text-ink" : "text-muted hover:text-ink",
+                    "rounded-full px-3 py-1.5 text-[13px] font-semibold transition-colors",
+                    isActive ? "bg-subtle text-ink" : "text-muted hover:bg-subtle/70 hover:text-ink",
                   )
                 }
               >
@@ -77,7 +77,7 @@ export function TopNav() {
             type="button"
             onClick={toggleTheme}
             aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-            className="flex h-8 w-8 items-center justify-center rounded-sm border border-line text-muted transition-colors hover:text-ink"
+            className="flex h-9 w-9 items-center justify-center rounded-[11px] border border-line bg-paper text-muted transition-colors hover:border-positive/40 hover:text-ink"
           >
             {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
@@ -90,17 +90,17 @@ export function TopNav() {
                 if (!notificationsOpen) void refetch();
               }}
               aria-label={`Notifications${unread ? `, ${unread} unread` : ""}`}
-              className="relative flex h-8 w-8 items-center justify-center rounded-sm border border-line text-muted transition-colors hover:text-ink"
+              className="relative flex h-9 w-9 items-center justify-center rounded-[11px] border border-line bg-paper text-muted transition-colors hover:border-positive/40 hover:text-ink"
             >
               <Bell className="h-4 w-4" />
               {unread > 0 ? (
-                <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-negative px-1 font-mono text-[9px] text-white">
+                <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-negative px-1 text-[9px] font-bold text-white">
                   {unread}
                 </span>
               ) : null}
             </button>
             {notificationsOpen ? (
-              <div className="absolute right-0 top-11 w-[320px] border border-line bg-paper shadow-lift">
+              <div className="absolute right-0 top-12 w-[320px] overflow-hidden rounded-lg border border-line bg-paper shadow-lift">
                 <div className="flex items-center justify-between border-b border-line px-4 py-3">
                   <span className="eyebrow">Notifications</span>
                   {unread > 0 ? (
@@ -126,7 +126,7 @@ export function TopNav() {
                         type="button"
                         className={cn(
                           "block w-full border-b border-line px-4 py-3 text-left transition-colors last:border-b-0 hover:bg-subtle",
-                          !item.read && "bg-navy/[0.03]",
+                          !item.read && "bg-accent/[0.05]",
                         )}
                         onClick={async () => {
                           if (!item.read) {
@@ -138,8 +138,8 @@ export function TopNav() {
                         }}
                       >
                         <div className="flex items-start justify-between gap-3">
-                          <span className="text-[12.5px] font-medium text-ink">{item.title}</span>
-                          <span className="mono shrink-0 text-[9.5px] uppercase text-muted">
+                          <span className="text-[12.5px] font-semibold text-ink">{item.title}</span>
+                          <span className="mono shrink-0 text-[9.5px] font-semibold uppercase text-muted">
                             {formatRelative(item.created_at)}
                           </span>
                         </div>
@@ -160,24 +160,24 @@ export function TopNav() {
                 setAccountOpen((open) => !open);
                 setNotificationsOpen(false);
               }}
-              className="flex h-8 items-center gap-2 rounded-sm border border-line px-2 text-muted transition-colors hover:text-ink"
+              className="flex h-9 items-center gap-2 rounded-full border border-line bg-paper px-2.5 text-muted transition-colors hover:border-positive/40 hover:text-ink"
               aria-label="Account menu"
             >
               <UserRound className="h-4 w-4" />
-              <span className="mono hidden max-w-[110px] truncate text-[10.5px] uppercase tracking-[0.08em] lg:block">
+              <span className="hidden max-w-[110px] truncate text-[10.5px] font-bold uppercase tracking-[0.06em] lg:block">
                 {user?.full_name || user?.email || "Account"}
               </span>
             </button>
             {accountOpen ? (
-              <div className="absolute right-0 top-11 w-[240px] border border-line bg-paper p-1 shadow-lift">
+              <div className="absolute right-0 top-12 w-[240px] overflow-hidden rounded-lg border border-line bg-paper p-1 shadow-lift">
                 <div className="px-3 py-2">
-                  <div className="text-[12.5px] text-ink">{user?.full_name || "Analyst"}</div>
+                  <div className="text-[12.5px] font-semibold text-ink">{user?.full_name || "Analyst"}</div>
                   <div className="truncate text-[11px] text-muted">{user?.email}</div>
                 </div>
                 <div className="rule my-1" />
                 <button
                   type="button"
-                  className="flex w-full items-center gap-2 px-3 py-2 text-left text-[12.5px] text-muted hover:bg-subtle hover:text-ink"
+                  className="flex w-full items-center gap-2 rounded-[9px] px-3 py-2 text-left text-[12.5px] font-medium text-muted hover:bg-subtle hover:text-ink"
                   onClick={() => {
                     logout();
                     navigate("/");

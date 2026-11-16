@@ -79,28 +79,35 @@ export function DashboardPage() {
 
   return (
     <AppShell>
-      <div className="flex flex-wrap items-end justify-between gap-6">
-        <div>
-          <div className="eyebrow">Workspace</div>
-          <h1 className="headline mt-3">
-            {greeting}, {firstName}.
-          </h1>
-          <p className="mt-3 max-w-[52ch] text-[13.5px] leading-relaxed text-muted">
-            {data && data.metrics.projects > 0
-              ? "Your research record, the risks it surfaced and the opportunities still open."
-              : "Start with a question about your market. The studio turns it into a structured, evidence-led investigation."}
-          </p>
+      <section className="hero-panel">
+        <div className="relative z-10 flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <div className="eyebrow">Workspace</div>
+            <h1 className="headline mt-3">
+              {greeting}, {firstName}.
+            </h1>
+            <p className="mt-3 max-w-[52ch] text-[13.5px] leading-relaxed">
+              {data && data.metrics.projects > 0
+                ? "Your research record, the risks it surfaced and the opportunities still open."
+                : "Start with a question about your market. The studio turns it into a structured, evidence-led investigation."}
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <Link to="/research/new">
+              <Button
+                className="border-white bg-white text-ink shadow-none hover:bg-white/90"
+                icon={<Plus className="h-4 w-4" />}
+              >
+                Start an analysis
+              </Button>
+            </Link>
+          </div>
         </div>
-        <div className="flex items-center gap-2">
-          <Link to="/research/new">
-            <Button icon={<Plus className="h-4 w-4" />}>Start an analysis</Button>
-          </Link>
-        </div>
-      </div>
+      </section>
 
       {data && !data.live_research_available ? (
-        <div className="mt-8 flex flex-wrap items-center gap-3 border border-warning/30 bg-warning/[0.05] px-4 py-3">
-          <span className="mono text-[10px] uppercase tracking-[0.12em] text-warning">Demonstration only</span>
+        <div className="mt-4 flex flex-wrap items-center gap-3 rounded-md border border-warning/25 bg-warning/[0.06] px-4 py-3">
+          <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-warning">Demonstration only</span>
           <span className="text-[12px] text-muted">
             No search provider is configured, so research runs on the synthetic corpus. Live research becomes
             available when a provider key is set.
@@ -118,7 +125,7 @@ export function DashboardPage() {
         </div>
       ) : data ? (
         <>
-          <div className="mt-9 grid grid-cols-2 gap-px border border-line bg-line md:grid-cols-4">
+          <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
             {[
               {
                 label: "Research projects",
@@ -145,7 +152,7 @@ export function DashboardPage() {
                 tone: "positive" as const,
               },
             ].map((item) => (
-              <div key={item.label} className="bg-paper px-5 py-6">
+              <div key={item.label} className="surface px-5 py-6">
                 <Stat label={item.label} value={item.value} hint={item.hint} tone={item.tone} />
               </div>
             ))}

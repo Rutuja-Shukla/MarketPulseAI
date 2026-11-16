@@ -7,17 +7,17 @@ type Size = "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-navy text-[#F8F7F3] hover:opacity-90 dark:text-[#10161c] border border-navy",
+    "bg-navy text-[#f4fbf7] hover:brightness-110 dark:text-[#081310] border border-navy shadow-[0_10px_26px_-18px_rgba(11,31,24,0.95)]",
   secondary:
-    "bg-subtle text-ink border border-line hover:border-muted/50",
+    "bg-subtle text-ink border border-line hover:border-positive/40",
   outline:
-    "bg-transparent text-ink border border-line hover:border-ink/40",
-  ghost: "bg-transparent text-muted hover:text-ink border border-transparent",
-  danger: "bg-negative text-white border border-negative hover:opacity-90",
+    "bg-transparent text-ink border border-line hover:border-ink/25 hover:bg-subtle",
+  ghost: "bg-transparent text-muted hover:text-ink hover:bg-subtle border border-transparent",
+  danger: "bg-negative text-white border border-negative hover:brightness-110",
 };
 
 const sizes: Record<Size, string> = {
-  sm: "h-8 px-3 text-[12.5px]",
+  sm: "h-9 px-3.5 text-[12.5px]",
   md: "h-10 px-4 text-[13.5px]",
   lg: "h-12 px-6 text-[14px]",
 };
@@ -38,7 +38,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       ref={ref}
       disabled={disabled || loading}
       className={cn(
-        "inline-flex select-none items-center justify-center gap-2 rounded-sm font-medium tracking-[0.01em] transition-all duration-200 ease-editorial disabled:cursor-not-allowed disabled:opacity-50",
+        "inline-flex select-none items-center justify-center gap-2 rounded-sm font-semibold tracking-[-0.01em] transition-all duration-200 ease-editorial disabled:cursor-not-allowed disabled:opacity-50",
         variants[variant],
         sizes[size],
         className,

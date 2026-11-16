@@ -169,17 +169,17 @@ export default function Overview() {
           title="The intelligence set"
           description="Every page reads from the same evidence ledger."
         />
-        <div className="mt-5 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {sections.map((section) => {
             const Icon = section.icon;
             return (
               <Link
                 key={section.slug}
                 to={`/analysis/${project.id}/${section.slug}`}
-                className="group bg-paper p-5 transition-colors hover:bg-subtle/50"
+                className="surface group p-5 transition-colors hover:border-accent/40"
               >
                 <div className="flex items-center justify-between">
-                  <Icon className="h-4 w-4 text-navy" aria-hidden />
+                  <Icon className="h-4 w-4 text-accent" aria-hidden />
                   <ArrowUpRight className="h-3.5 w-3.5 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </div>
                 <div className="mt-5 text-[13.5px] text-ink">{section.title}</div>

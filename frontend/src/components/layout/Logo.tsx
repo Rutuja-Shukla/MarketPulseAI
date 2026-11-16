@@ -3,13 +3,15 @@ import { cn } from "@/lib/utils";
 
 export function LogoMark({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 28 28" className={cn("h-6 w-6", className)} aria-hidden fill="none">
-      <circle cx="14" cy="14" r="12.4" stroke="currentColor" strokeWidth="1" opacity="0.35" />
-      <circle cx="14" cy="14" r="7.4" stroke="currentColor" strokeWidth="1" opacity="0.55" />
-      <circle cx="14" cy="14" r="2" fill="currentColor" />
-      <path d="M14 1.6v6.2M14 20.4v6M1.6 14h6.2M20.4 14h6" stroke="currentColor" strokeWidth="1" opacity="0.5" />
-      <path d="M20.2 7.8l3.2-3.2" stroke="currentColor" strokeWidth="1.4" />
-    </svg>
+    <span
+      className={cn(
+        "flex h-8 w-8 shrink-0 items-center justify-center rounded-[11px] bg-ink transition-transform duration-500 ease-editorial group-hover:-rotate-6",
+        className,
+      )}
+      aria-hidden
+    >
+      <span className="h-2.5 w-2.5 rotate-45 rounded-[3px] bg-lime" />
+    </span>
   );
 }
 
@@ -28,11 +30,11 @@ export function Logo({
       className={cn("group inline-flex items-center gap-2.5 text-ink", className)}
       aria-label="MarketPulse AI home"
     >
-      <LogoMark className="text-navy transition-transform duration-500 ease-editorial group-hover:rotate-45" />
+      <LogoMark />
       <span className="flex flex-col leading-none">
-        <span className="font-serif text-[19px] tracking-[-0.01em]">MarketPulse</span>
+        <span className="text-[17.5px] font-extrabold tracking-[-0.04em]">MarketPulse</span>
         {!compact ? (
-          <span className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.28em] text-muted">
+          <span className="mt-1 text-[8.5px] font-semibold uppercase tracking-[0.22em] text-muted">
             Intelligence
           </span>
         ) : null}

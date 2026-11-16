@@ -21,7 +21,7 @@ export function FieldShell({
   return (
     <div className={cn("space-y-2", className)}>
       <div className="flex items-baseline justify-between gap-3">
-        <label htmlFor={htmlFor} className="text-[12.5px] font-medium text-ink">
+        <label htmlFor={htmlFor} className="text-[12.5px] font-semibold text-ink">
           {label}
           {required ? <span className="ml-1 text-negative">*</span> : null}
         </label>
@@ -34,7 +34,7 @@ export function FieldShell({
 }
 
 const controlClass =
-  "w-full rounded-sm border border-line bg-paper px-3 py-2.5 text-[13.5px] text-ink placeholder:text-muted/70 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/15 disabled:opacity-60";
+  "w-full rounded-sm border border-line bg-paper px-3.5 py-2.5 text-[13.5px] text-ink placeholder:text-muted/70 transition-colors hover:border-muted/40 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 disabled:opacity-60";
 
 export const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(
   function Input({ className, ...props }, ref) {
@@ -122,14 +122,14 @@ export function OptionCard({
       className={cn(
         "group relative w-full rounded-sm border p-4 text-left transition-all duration-200 ease-editorial",
         selected
-          ? "border-navy bg-navy/[0.04] shadow-quiet"
-          : "border-line bg-paper hover:border-muted/40",
+          ? "border-accent bg-accent/[0.06] shadow-quiet"
+          : "border-line bg-paper hover:border-accent/40",
         disabled && "cursor-not-allowed opacity-50",
         className,
       )}
     >
       <div className="flex items-start justify-between gap-3">
-        <span className="text-[13.5px] font-medium text-ink">{title}</span>
+        <span className="text-[13.5px] font-semibold text-ink">{title}</span>
         <span
           className={cn(
             "mt-1 h-3 w-3 shrink-0 rounded-full border transition-colors",
@@ -167,10 +167,10 @@ export function Toggle({
         aria-checked={checked}
         aria-label={label}
         onClick={() => onChange(!checked)}
-        className={cn(
-          "relative mt-0.5 h-5 w-9 shrink-0 rounded-full border transition-colors",
-          checked ? "border-navy bg-navy" : "border-line bg-subtle",
-        )}
+                  className={cn(
+            "relative mt-0.5 h-5 w-9 shrink-0 rounded-full border transition-colors",
+            checked ? "border-accent bg-accent" : "border-line bg-subtle",
+          )}
       >
         <span
           className={cn(

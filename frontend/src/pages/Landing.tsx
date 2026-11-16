@@ -97,7 +97,7 @@ export function LandingPage() {
 
   return (
     <div className="min-h-screen bg-canvas">
-      <header className="sticky top-0 z-40 border-b border-line/70 bg-canvas/85 backdrop-blur-md">
+      <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-md">
         <div className="page-shell flex h-[68px] items-center justify-between gap-6">
           <Logo />
           <nav className="hidden items-center gap-7 md:flex" aria-label="Marketing">
@@ -119,7 +119,7 @@ export function LandingPage() {
               type="button"
               onClick={toggleTheme}
               aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-              className="flex h-8 w-8 items-center justify-center rounded-sm border border-line text-muted transition-colors hover:text-ink"
+              className="flex h-9 w-9 items-center justify-center rounded-[11px] border border-line bg-paper text-muted transition-colors hover:border-positive/40 hover:text-ink"
             >
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
@@ -245,13 +245,13 @@ export function LandingPage() {
           </motion.div>
 
           <div className="lg:col-span-8">
-            <div className="grid gap-px bg-line sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2">
               {steps.map((step, index) => (
                 <motion.div
                   key={step.number}
                   {...fadeUp}
                   transition={{ ...fadeUp.transition, delay: index * 0.06 }}
-                  className="bg-canvas p-6 md:p-7"
+                  className="surface p-6 md:p-7"
                 >
                   <div className="flex items-center justify-between">
                     <span className="mono text-[10px] uppercase tracking-[0.16em] text-muted">
@@ -290,10 +290,10 @@ export function LandingPage() {
               onClick={() => setRadar("failure")}
               aria-pressed={radar === "failure"}
               className={cn(
-                "rounded-sm border px-4 py-2 text-[12.5px] transition-colors",
+                "rounded-full border px-4 py-2 text-[12.5px] font-semibold transition-colors",
                 radar === "failure"
                   ? "border-navy bg-navy text-canvas dark:text-[#10161c]"
-                  : "border-line text-muted hover:text-ink",
+                  : "border-line text-muted hover:border-muted/50 hover:text-ink",
               )}
             >
               Failure Radar
@@ -303,10 +303,10 @@ export function LandingPage() {
               onClick={() => setRadar("opportunity")}
               aria-pressed={radar === "opportunity"}
               className={cn(
-                "rounded-sm border px-4 py-2 text-[12.5px] transition-colors",
+                "rounded-full border px-4 py-2 text-[12.5px] font-semibold transition-colors",
                 radar === "opportunity"
                   ? "border-navy bg-navy text-canvas dark:text-[#10161c]"
-                  : "border-line text-muted hover:text-ink",
+                  : "border-line text-muted hover:border-muted/50 hover:text-ink",
               )}
             >
               Opportunity Radar
@@ -448,7 +448,7 @@ export function LandingPage() {
               {["Complaint", "Weakness", "Risk", "Competitor", "Opportunity", "Action"].map((label) => (
                 <span
                   key={label}
-                  className="rounded-sm border border-line px-2 py-1 font-mono text-[9.5px] uppercase tracking-[0.1em] text-muted"
+                  className="rounded-full border border-line px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-muted"
                 >
                   {label}
                 </span>
@@ -499,13 +499,13 @@ export function LandingPage() {
                 reporting flexibility and regional payment support are the clearest expansion
                 openings.
               </p>
-              <div className="mt-6 grid gap-px bg-line sm:grid-cols-3">
+              <div className="mt-6 grid gap-3 sm:grid-cols-3">
                 {[
                   ["42", "Evidence records"],
                   ["7", "Source categories"],
                   ["11", "Findings"],
                 ].map(([value, label]) => (
-                  <div key={label} className="bg-paper px-4 py-3">
+                  <div key={label} className="rounded-sm bg-subtle px-4 py-3">
                     <div className="mono text-[18px] leading-none">{value}</div>
                     <div className="mt-1 text-[9.5px] uppercase tracking-[0.1em] text-muted">{label}</div>
                   </div>

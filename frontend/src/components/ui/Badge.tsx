@@ -6,10 +6,10 @@ type Tone = "neutral" | "positive" | "negative" | "warning" | "navy" | "outline"
 
 const tones: Record<Tone, string> = {
   neutral: "bg-subtle text-muted border-line",
-  positive: "bg-positive/12 text-positive border-positive/35",
-  negative: "bg-negative/12 text-negative border-negative/35",
-  warning: "bg-warning/12 text-warning border-warning/35",
-  navy: "bg-navy/10 text-navy border-navy/30",
+  positive: "bg-positive/10 text-positive border-positive/25",
+  negative: "bg-negative/10 text-negative border-negative/25",
+  warning: "bg-warning/10 text-warning border-warning/25",
+  navy: "bg-navy/[0.06] text-ink border-line dark:bg-white/10 dark:text-ink",
   outline: "bg-transparent text-muted border-line",
 };
 
@@ -25,7 +25,7 @@ export function Badge({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-sm border px-2 py-[3px] font-mono text-[10.5px] uppercase tracking-[0.1em]",
+        "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-[3px] text-[11px] font-semibold capitalize tracking-[-0.005em]",
         tones[tone],
         className,
       )}
